@@ -10,12 +10,15 @@ function Main() {
 
   const passwordGenerator = useCallback(() => {
     let pass = "";
-    let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-    if (numberAllowed) str += "0123456789";
-    if (charAllowed) str += "@#$%^&*-_~";
-
+    let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"; //length 52
+    if (numberAllowed) str += "0123456789"; //length 62
+    if (charAllowed) str += "@#$%^&*-_~"; //length 72
+    // console.log(str.length);
+    
     for (let i = 1; i <= length; i++) {
-      let char = Math.floor(Math.random() * str.length + 1);
+      let char = Math.floor(Math.random() * str.length);
+      console.log(char);
+      
       pass += str.charAt(char);
     }
 
